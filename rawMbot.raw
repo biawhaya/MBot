@@ -232,6 +232,7 @@ AgacHazir = 0
 function Hazir(list)
     if world.name ~= list then
         join(list,FarmWorldID)
+	sleep(1000)
     end
     AgacHazir = 0
     for i, tile in ipairs(world:getTiles()) do
@@ -528,6 +529,7 @@ while isOwner == true do
         PickaxeControl()
         if world.name ~= list then
             join(list,FarmWorldID)
+	sleep(1000)
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <a:World:997157064008810620> Current World : "..world.name..
