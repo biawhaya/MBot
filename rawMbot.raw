@@ -228,12 +228,12 @@ function harvest(list)
     end
 end
 
-AgacHazir = 0
+AgacHazir = 1 --changed
 function Hazir(list)
     if world.name ~= list then
         join(list,FarmWorldID)
     end
-    AgacHazir = 0
+    AgacHazir = 1 --changed
     for i, tile in ipairs(world:getTiles()) do
         if tile:canHarvest() then
             if tile.fg == SeedID or tile.bg == SeedID then
