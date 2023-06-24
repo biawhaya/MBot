@@ -233,7 +233,7 @@ function Hazir(list)
     if world.name ~= list then
         join(list,FarmWorldID)
     end
-    AgacHazir = 1 --changed
+    AgacHazir = 0 --changed
     for i, tile in ipairs(world:getTiles()) do
         if tile:canHarvest() then
             if tile.fg == SeedID or tile.bg == SeedID then
