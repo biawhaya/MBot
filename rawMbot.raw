@@ -536,6 +536,7 @@ while isOwner == true do
         "\n <:peppertree:999318156696887378> Unready Tree : "..scanTree(BlockID+1).Unready..
         "\n <:Fossil:997497957848989737> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
+	sleep(3000)
         Hazir(list)
         while AgacHazir == 1 do
             sleep(3000) 
