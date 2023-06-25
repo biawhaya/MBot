@@ -236,7 +236,6 @@ function Hazir(list)
     return AgacHazir
 end
 
-botcuk = bot.name
 function Dropf(list)
     while bot.gem_count > pricepack do
         bot:sendPacket(2, "action|buy\nitem|"..packname)
@@ -253,6 +252,9 @@ function Dropf(list)
             sleep(500)
             bot:moveLeft()
         end
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
     end 
     if inventory:getItemCount(PackitemID) > PackDropCount then
         bot.auto_collect = false
@@ -265,7 +267,7 @@ function Dropf(list)
             sleep(500)
             bot:moveLeft()
         end
-        GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
     end
@@ -416,6 +418,8 @@ end
 isOwner = true
 
 
+
+
 function takeP()
     for _, obj in pairs(world:getObjects()) do
       if obj.id == 98 then
@@ -455,7 +459,10 @@ function PickaxeControl()
                 dropPick()
                 sleep(1000)
             end
+            GonWebhook(bot.name.." took the pickaxe rotation starts"..
+            "\n Left Pickaxe : "..floats(98).ucanlar)
         else
+            GonWebhook(bot.name.." bot failed to pick up, tries again.")
             while inventory:getItemCount(98) == 0 do
                 sleep(5000)
                 join(PickaxeWorld,PickaxeWorldID)
@@ -474,6 +481,8 @@ function PickaxeControl()
                     end
                 end
             end
+            GonWebhook(bot.name.." took the pickaxe rotation starts"..
+            "\n Left Pickaxe : "..floats(98).ucanlar)
         end
     end
     if inventory:getItemCount(98) > 1 then
