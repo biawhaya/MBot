@@ -115,13 +115,11 @@ end
 
 function Reconnect(list)
     if bot.status ~= 1 then
-        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
-        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(list,FarmWorldID)
     end
     if world.name ~= list then
@@ -266,6 +264,9 @@ function Dropf(list)
             sleep(500)
             bot:moveLeft()
         end
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
     end
 end
 
@@ -410,22 +411,7 @@ function PNB(list)
     end
 end
 
-startT = os.time()
-function SecondTT(seconds)
-  local seconds = tonumber(seconds)
-  if seconds <= 0 then
-    return "00:00:00";
-  else
-    hours = string.format("%02.f", math.floor(seconds/3600));
-    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
-    secs = string.format("%02.f", math.floor(seconds - hours*3600 - mins *60));
-    return hours..":"..mins..":"..secs
-  end
-end
-
 isOwner = true
-
-
 
 
 function takeP()
@@ -507,6 +493,10 @@ while isOwner == true do
         if world.name ~= list then
             join(list,FarmWorldID)
         end
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
+        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
+        "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
 	sleep(1000)
         Hazir(list)
         while AgacHazir == 1 do
