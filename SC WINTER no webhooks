@@ -236,6 +236,7 @@ function Hazir(list)
     return AgacHazir
 end
 
+botcuk = bot.name
 function Dropf(list)
     while bot.gem_count > pricepack do
         bot:sendPacket(2, "action|buy\nitem|"..packname)
@@ -264,7 +265,7 @@ function Dropf(list)
             sleep(500)
             bot:moveLeft()
         end
-        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
     end
@@ -411,18 +412,6 @@ function PNB(list)
     end
 end
 
-startT = os.time()
-function SecondTT(seconds)
-  local seconds = tonumber(seconds)
-  if seconds <= 0 then
-    return "00:00:00";
-  else
-    hours = string.format("%02.f", math.floor(seconds/3600));
-    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
-    secs = string.format("%02.f", math.floor(seconds - hours*3600 - mins *60));
-    return hours..":"..mins..":"..secs
-  end
-end
 
 isOwner = true
 
