@@ -472,7 +472,6 @@ function PickaxeControl()
                 sleep(1000)
             end
         else
-            GonWebhook(bot.name.." bot failed to pick up, tries again.")
             while inventory:getItemCount(98) == 0 do
                 sleep(5000)
                 join(PickaxeWorld,PickaxeWorldID)
