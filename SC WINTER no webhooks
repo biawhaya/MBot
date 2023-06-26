@@ -414,6 +414,18 @@ function PNB(list)
     end
 end
 
+startT = os.time()
+function SecondTT(seconds)
+  local seconds = tonumber(seconds)
+  if seconds <= 0 then
+    return "00:00:00";
+  else
+    hours = string.format("%02.f", math.floor(seconds/3600));
+    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
+    secs = string.format("%02.f", math.floor(seconds - hours*3600 - mins *60));
+    return hours..":"..mins..":"..secs
+  end
+end
 
 isOwner = true
 
@@ -459,8 +471,6 @@ function PickaxeControl()
                 dropPick()
                 sleep(1000)
             end
-            GonWebhook(bot.name.." took the pickaxe rotation starts"..
-            "\n Left Pickaxe : "..floats(98).ucanlar)
         else
             GonWebhook(bot.name.." bot failed to pick up, tries again.")
             while inventory:getItemCount(98) == 0 do
@@ -481,8 +491,6 @@ function PickaxeControl()
                     end
                 end
             end
-            GonWebhook(bot.name.." took the pickaxe rotation starts"..
-            "\n Left Pickaxe : "..floats(98).ucanlar)
         end
     end
     if inventory:getItemCount(98) > 1 then
@@ -508,6 +516,7 @@ while isOwner == true do
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
         "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
+        "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	sleep(1000)
         Hazir(list)
         while AgacHazir == 1 do
