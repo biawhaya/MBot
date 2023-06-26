@@ -5,7 +5,7 @@ PackDropWorld = string.upper(PackDropWorld)
 PackDropWorldID = string.upper(PackDropWorldID)
 PickaxeWorld = string.upper(PickaxeWorld)
 PickaxeWorldID = string.upper(PickaxeWorldID)
-bot.collect_range = 4
+bot.collect_range = 3
 bot.auto_collect = false
 function GonWebhook(Winter)
     local script = [[
