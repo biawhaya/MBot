@@ -504,7 +504,7 @@ PickaxeControl()
 botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
-    for _, list in pairs([bot.name].farmWorlds) do
+    for _, list in pairs(farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
         PickaxeControl()
