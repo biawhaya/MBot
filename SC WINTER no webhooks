@@ -573,7 +573,8 @@ while isOwner == true do
         end
         dinlenme = dinlenme + 1
         if restBot == "yes" and dinlenme == restWorldComplete then
-        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> Bot Name : "..botcuk..
+        GonWebhook("<@" .. YourDiscordid .. ">"
+	"\n<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <:wold:909756145202233355> Status Rotation : Done!!!"
         "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
