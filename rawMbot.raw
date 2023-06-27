@@ -5,7 +5,7 @@ PackDropWorld = string.upper(PackDropWorld)
 PackDropWorldID = string.upper(PackDropWorldID)
 PickaxeWorld = string.upper(PickaxeWorld)
 PickaxeWorldID = string.upper(PickaxeWorldID)
-bot.collect_range = 4
+bot.collect_range = 3
 bot.auto_collect = false
 function GonWebhook(Winter)
     local script = [[
@@ -117,13 +117,11 @@ end
 
 function Reconnect(list)
     if bot.status ~= 1 then
-        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
-        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(list,FarmWorldID)
     end
     if world.name ~= list then
@@ -140,13 +138,11 @@ end
 
 function Reconnectdropseed()
     if bot.status ~= 1 then
-        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
-        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(StorageWorld,StorageWorldSeedID)
     end
     if world.name ~= StorageWorld then
@@ -163,13 +159,11 @@ end
 
 function Reconnectdroppack()
     if bot.status ~= 1 then
-        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
-        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(PackDropWorld,PackDropWorldID)
     end
     if world.name ~= PackDropWorld then
@@ -262,9 +256,7 @@ function Dropf(list)
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
         "\n <:wold:909756145202233355> Current World : "..world.name..
-        "\n <a:online:1007062631787544666> Status : "..bot.status..
-        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
-        "\n <:pepper_tree_seed:1012630107715797073> Dropped Block : "..floats(BlockID).ucanlar)
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar)
     end 
     if inventory:getItemCount(PackitemID) > PackDropCount then
         bot.auto_collect = false
@@ -279,7 +271,6 @@ function Dropf(list)
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
         "\n <:wold:909756145202233355> Current World : "..world.name..
-        "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
     end
 end
@@ -322,12 +313,10 @@ end
 
 function OnlineControl()
     if bot.status ~= 1 then
-        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Offline Trying To Reconnect.... \n<:red_circle:987661002868936774> | Status : Offline ")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
-        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Back Online\n<a:online:1007062631787544666> | Status : Online\n<:wold:909756145202233355>")
     end
 end
 
@@ -355,6 +344,8 @@ end
 BotPxz = BotPx-1
 BotPyz = BotPy-1
 function PNB(list)
+    for _, list in pairs(Bots[bot.name].pnbbotLists) do
+        list = string.upper(list)
     PickaxeControl()
     Reconnect(list)
     bot.auto_collect = true
@@ -369,6 +360,7 @@ function PNB(list)
             sleep(2000)
             AnlikYer()
         end
+	end
         if tilealfg(Botx-1,Boty).tilefg == 0 then 
 	if bot:isInTile(Botx,Boty) then
             bot:place(Botx-1,Boty,BlockID)
@@ -442,7 +434,13 @@ end
 
 isOwner = true
 
-
+local message = "Farm Worlds:\n"
+for i = 1, #farmWorlds do
+    message = message ..i.. ". " .. farmWorlds[i] .. "\n"
+end
+GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+"\n <a:online:1007062631787544666> Status : "..bot.status..
+"\n <:gems:994218103032520724> "..message)
 
 
 function takeP()
@@ -484,10 +482,7 @@ function PickaxeControl()
                 dropPick()
                 sleep(1000)
             end
-            GonWebhook(bot.name.." took the pickaxe rotation starts"..
-            "\n Left Pickaxe : "..floats(98).ucanlar)
         else
-            GonWebhook(bot.name.." bot failed to pick up, tries again.")
             while inventory:getItemCount(98) == 0 do
                 sleep(5000)
                 join(PickaxeWorld,PickaxeWorldID)
@@ -506,8 +501,6 @@ function PickaxeControl()
                     end
                 end
             end
-            GonWebhook(bot.name.." took the pickaxe rotation starts"..
-            "\n Left Pickaxe : "..floats(98).ucanlar)
         end
     end
     if inventory:getItemCount(98) > 1 then
@@ -522,7 +515,7 @@ PickaxeControl()
 botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
-    for _, list in pairs(Bots[bot.name].farmWorlds) do
+    for _, list in pairs(farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
         PickaxeControl()
@@ -531,9 +524,7 @@ while isOwner == true do
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <:wold:909756145202233355> Current World : "..world.name..
-        "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
-        "\n <:peppertree:999318156696887378> Unready Tree : "..scanTree(BlockID+1).Unready..
         "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	sleep(1000)
@@ -586,7 +577,16 @@ while isOwner == true do
             Hazir(list)
         end
         dinlenme = dinlenme + 1
-        if restBot == "yes" and dinlenme == restWorldComplete then 
+        if restBot == "yes" and dinlenme == restWorldComplete then
+        GonWebhook("<@" .. YourDiscordid .. ">"..
+	"\n<:growbot:992058196439072770> Bot Name : "..botcuk..
+        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <:wold:909756145202233355> Status Rotation : Done!!!"..
+        "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
+        "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
+        "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
+	sleep(1000)
+	bot:leaveWorld()
             sleep(restMiliSecond)
             dinlenme = 0
         end
