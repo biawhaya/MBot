@@ -345,7 +345,7 @@ BotPxz = BotPx-1
 BotPyz = BotPy-1
 function PNB(list)
     for _, list in pairs(Bots[bot.name].pnbbotLists) do
-        list = string.upper(list)
+        list = string.upper(pnbbotLists)
     PickaxeControl()
     Reconnect(list)
     bot.auto_collect = true
