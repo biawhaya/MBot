@@ -418,7 +418,7 @@ end
 function PNB(list)
     for _, listpnb in pairs(Bots[bot.name].pnbbot) do
         listpnb = string.upper(listpnb)
-    if listpnb == 1 then
+    if listpnb == BOT1 then
 	PNB1(list)
 	sleep(1000)
 	end
