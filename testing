@@ -414,10 +414,9 @@ function PNB(list)
             sleep(delaybreak) 
 	    end
         end
-
+end
+end
     end
-end
-end
 end
 
 startT = os.time()
