@@ -340,18 +340,21 @@ function tilealbg(x,y)
     end
 end
 
-function PNBA(list)
+
+BotPxz = BotPx-1
+BotPyz = BotPy-1
+function PNB(list)
     PickaxeControl()
     Reconnect(list)
     bot.auto_collect = true
-    bot:findPath(1,3)
+    bot:findPath(BotPxz,BotPyz)
     sleep(2000)
     while inventory:getItemCount(BlockID) > 0 do
         Reconnect(list)
         AnlikYer()
 
-        if 1 ~= Botx and 3 ~= BotY then
-            bot:findPath(1,3)
+        if BotPxz ~= Botx and BotPyz ~= BotY then
+            bot:findPath(BotPxz,BotPyz)
             sleep(2000)
             AnlikYer()
         end
@@ -375,8 +378,8 @@ function PNBA(list)
         end
         while (tilealfg(Botx-1,Boty).tilefg ~= 0 or tilealbg(Botx,Boty).tilebg ~= 0) do
             Reconnect(list)
-            if 1 ~= Botx and 3 ~= BotY then
-                bot:findPath(1,3)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -387,8 +390,8 @@ function PNBA(list)
         end
         while (tilealfg(Botx-1,Boty+1).tilefg ~= 0 or tilealbg(Botx-1,Boty+1).tilebg ~= 0) do
             Reconnect(list)
-            if 1 ~= Botx and 3 ~= BotY then
-                bot:findPath(1,3)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -399,8 +402,8 @@ function PNBA(list)
         end
         while (tilealfg(Botx-1,Boty-1).tilefg ~= 0 or tilealbg(Botx-1,Boty-1).tilebg ~= 0) do
             Reconnect(list)
-            if 1 ~= Botx and 3 ~= BotY then
-                bot:findPath(1,3)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -410,17 +413,6 @@ function PNBA(list)
 	    end
         end
 
-    end
-end
-
-Botpp = BOT1
-function PNB(list)
-    for _, listpnb in pairs(Bots[bot.name].pnbbot) do
-        listpnb = string.upper(listpnb)
-    while Botpp == listpnb do
-	PNBA(list)
-	sleep(1000)
-	end
     end
 end
 
@@ -520,7 +512,7 @@ PickaxeControl()
 botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
-    for _, list in pairs(farmWorlds) do
+    for _, list in pairs(Bots[bot.name].farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
         PickaxeControl()
