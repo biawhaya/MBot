@@ -117,11 +117,13 @@ end
 
 function Reconnect(list)
     if bot.status ~= 1 then
+        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
+        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(list,FarmWorldID)
     end
     if world.name ~= list then
@@ -138,11 +140,13 @@ end
 
 function Reconnectdropseed()
     if bot.status ~= 1 then
+        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
+        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(StorageWorld,StorageWorldSeedID)
     end
     if world.name ~= StorageWorld then
@@ -159,11 +163,13 @@ end
 
 function Reconnectdroppack()
     if bot.status ~= 1 then
+        GonWebhook("Bot Offline ".."<@" .. YourDiscordid .. ">")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
 	sleep(5000)
+        GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(PackDropWorld,PackDropWorldID)
     end
     if world.name ~= PackDropWorld then
@@ -222,12 +228,12 @@ function harvest(list)
     end
 end
 
-AgacHazir = 1 --changed
+AgacHazir = 0
 function Hazir(list)
     if world.name ~= list then
         join(list,FarmWorldID)
     end
-    AgacHazir = 0 --changed
+    AgacHazir = 0
     for i, tile in ipairs(world:getTiles()) do
         if tile:canHarvest() then
             if tile.fg == SeedID or tile.bg == SeedID then
@@ -255,8 +261,10 @@ function Dropf(list)
             bot:moveLeft()
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
-        "\n <:wold:909756145202233355> Current World : "..world.name..
-        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar)
+        "\n <a:World:997157064008810620> Current World : "..world.name..
+        "\n <a:online:1007062631787544666> Status : "..bot.status..
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Block : "..floats(BlockID).ucanlar)
     end 
     if inventory:getItemCount(PackitemID) > PackDropCount then
         bot.auto_collect = false
@@ -270,7 +278,8 @@ function Dropf(list)
             bot:moveLeft()
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
-        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <a:World:997157064008810620> Current World : "..world.name..
+        "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
     end
 end
@@ -313,10 +322,12 @@ end
 
 function OnlineControl()
     if bot.status ~= 1 then
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Offline Trying To Reconnect.... \n<:red_circle:987661002868936774> | Status : Offline ")
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Back Online\n<a:online:1007062631787544666> | Status : Online\n<a:World:997157064008810620>")
     end
 end
 
@@ -473,7 +484,10 @@ function PickaxeControl()
                 dropPick()
                 sleep(1000)
             end
+            GonWebhook(bot.name.." took the pickaxe rotation starts"..
+            "\n Left Pickaxe : "..floats(98).ucanlar)
         else
+            GonWebhook(bot.name.." bot failed to pick up, tries again.")
             while inventory:getItemCount(98) == 0 do
                 sleep(5000)
                 join(PickaxeWorld,PickaxeWorldID)
@@ -492,6 +506,8 @@ function PickaxeControl()
                     end
                 end
             end
+            GonWebhook(bot.name.." took the pickaxe rotation starts"..
+            "\n Left Pickaxe : "..floats(98).ucanlar)
         end
     end
     if inventory:getItemCount(98) > 1 then
@@ -514,11 +530,12 @@ while isOwner == true do
             join(list,FarmWorldID)
         end
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
-        "\n <:wold:909756145202233355> Current World : "..world.name..
+        "\n <a:World:997157064008810620> Current World : "..world.name..
+        "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
-        "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
+        "\n <:peppertree:999318156696887378> Unready Tree : "..scanTree(BlockID+1).Unready..
+        "\n <:Fossil:997497957848989737> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
-	sleep(1000)
         Hazir(list)
         while AgacHazir == 1 do
             sleep(3000) 
@@ -568,16 +585,7 @@ while isOwner == true do
             Hazir(list)
         end
         dinlenme = dinlenme + 1
-        if restBot == "yes" and dinlenme == restWorldComplete then
-        GonWebhook("<@" .. YourDiscordid .. ">"..
-	"\n<:growbot:992058196439072770> Bot Name : "..botcuk..
-        "\n <:wold:909756145202233355> Current World : "..world.name..
-        "\n <:wold:909756145202233355> Status Rotation : Done!!!"..
-        "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
-        "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
-        "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
-	sleep(1000)
-	bot:leaveWorld()
+        if restBot == "yes" and dinlenme == restWorldComplete then 
             sleep(restMiliSecond)
             dinlenme = 0
         end
