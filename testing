@@ -341,20 +341,24 @@ function tilealbg(x,y)
 end
 
 
-BotPxz = BotPx-1
-BotPyz = BotPy-1
 function PNB(list)
+    for _, listpnbx in pairs(Bots[bot.name].pnbbots) do
+        listpnbx = string.upper(listpnbx)
+end
+    for _, listpnby in pairs(Bots[bot.name].pnbbotsy) do
+        listpnby = string.upper(listpnby)
+end
     PickaxeControl()
     Reconnect(list)
     bot.auto_collect = true
-    bot:findPath(BotPxz,BotPyz)
+    bot:findPath(listpnbx,listpnby)
     sleep(2000)
     while inventory:getItemCount(BlockID) > 0 do
         Reconnect(list)
         AnlikYer()
 
-        if BotPxz ~= Botx and BotPyz ~= BotY then
-            bot:findPath(BotPxz,BotPyz)
+        if listpnbx ~= Botx and listpnby ~= BotY then
+            bot:findPath(listpnbx,listpnby)
             sleep(2000)
             AnlikYer()
         end
@@ -378,8 +382,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty).tilefg ~= 0 or tilealbg(Botx,Boty).tilebg ~= 0) do
             Reconnect(list)
-            if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+            if listpnbx ~= Botx and listpnby ~= BotY then
+                bot:findPath(listpnbx,listpnby)
                 sleep(1000)
                 AnlikYer()
             end
@@ -390,8 +394,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty+1).tilefg ~= 0 or tilealbg(Botx-1,Boty+1).tilebg ~= 0) do
             Reconnect(list)
-            if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+            if listpnbx ~= Botx and listpnby ~= BotY then
+                bot:findPath(listpnbx,listpnby)
                 sleep(1000)
                 AnlikYer()
             end
@@ -402,8 +406,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty-1).tilefg ~= 0 or tilealbg(Botx-1,Boty-1).tilebg ~= 0) do
             Reconnect(list)
-            if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+            if listpnbx ~= Botx and listpnby ~= BotY then
+                bot:findPath(listpnbx,listpnby)
                 sleep(1000)
                 AnlikYer()
             end
@@ -575,7 +579,7 @@ while isOwner == true do
         end
         dinlenme = dinlenme + 1
         if restBot == "yes" and dinlenme == restWorldComplete then
-        edit(message_id: 1123591383001878548)("<@" .. YourDiscordid .. ">"..
+        GonWebhook("<@" .. YourDiscordid .. ">"..
 	"\n<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <:wold:909756145202233355> Status Rotation : Done!!!"..
