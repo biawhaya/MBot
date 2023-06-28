@@ -415,11 +415,11 @@ function PNB1(list)
     end
 end
 
-BOT1 = Listbot1
+Botpp = BOT1
 function PNB(list)
     for _, listpnb in pairs(Bots[bot.name].pnbbot) do
         listpnb = string.upper(listpnb)
-    if Listbot1 == listpnb then
+    if Botpp == listpnb then
 	PNB1(list)
 	sleep(1000)
 	end
