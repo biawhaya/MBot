@@ -431,11 +431,6 @@ end
 
 isOwner = true
 
-GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
-"\n <a:online:1007062631787544666> Status : "..bot.status..
-"\n <:gems:994218103032520724> "..message)
-
-
 function takeP()
     for _, obj in pairs(world:getObjects()) do
       if obj.id == 98 then
