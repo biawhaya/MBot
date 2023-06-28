@@ -416,7 +416,7 @@ function PNB1(list)
 end
 
 function PNB(list)
-	if Bot[getBot()[1].name] then
+	if bot[getBot()[1].name] then
 	PNB1(list)
 	end
 end
