@@ -416,6 +416,10 @@ function PNB1(list)
 end
 
 function PNB(list)
+    while inventory:getItemCount(BlockID) > 0 do
+        Reconnect(list)
+        AnlikYer()
+
     for _, listpnb in pairs(Bots[bot.name].pnbbot) do
         listpnb = string.upper(listpnb)
 	if listpnb == 1 then
@@ -423,6 +427,7 @@ function PNB(list)
 	sleep(1000)
 	end
     end
+end
 end
 
 startT = os.time()
