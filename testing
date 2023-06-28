@@ -340,23 +340,20 @@ function tilealbg(x,y)
     end
 end
 
-
-function PNB(list)
-    for _, listpnbx in pairs(Bots[bot.name].pnbbots) do
-        listpnbx = string.upper(listpnbx)
-    for _, listpnby in pairs(Bots[bot.name].pnbbotsy) do
-        listpnby = string.upper(listpnby)
+BotPxz = BotPx-1
+BotPyz = BotPy-1
+function PNB1(list)
     PickaxeControl()
     Reconnect(list)
     bot.auto_collect = true
-    bot:findPath(listpnbx,listpnby)
+    bot:findPath(BotPxz,BotPyz)
     sleep(2000)
     while inventory:getItemCount(BlockID) > 0 do
         Reconnect(list)
         AnlikYer()
 
-        if listpnbx ~= Botx and listpnby ~= BotY then
-            bot:findPath(listpnbx,listpnby)
+        if BotPxz ~= Botx and BotPyz ~= BotY then
+            bot:findPath(BotPxz,BotPyz)
             sleep(2000)
             AnlikYer()
         end
@@ -380,8 +377,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty).tilefg ~= 0 or tilealbg(Botx,Boty).tilebg ~= 0) do
             Reconnect(list)
-            if listpnbx ~= Botx and listpnby ~= BotY then
-                bot:findPath(listpnbx,listpnby)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -392,8 +389,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty+1).tilefg ~= 0 or tilealbg(Botx-1,Boty+1).tilebg ~= 0) do
             Reconnect(list)
-            if listpnbx ~= Botx and listpnby ~= BotY then
-                bot:findPath(listpnbx,listpnby)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -404,8 +401,8 @@ function PNB(list)
         end
         while (tilealfg(Botx-1,Boty-1).tilefg ~= 0 or tilealbg(Botx-1,Boty-1).tilebg ~= 0) do
             Reconnect(list)
-            if listpnbx ~= Botx and listpnby ~= BotY then
-                bot:findPath(listpnbx,listpnby)
+            if BotPxz ~= Botx and BotPyz ~= BotY then
+                bot:findPath(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -414,9 +411,14 @@ function PNB(list)
             sleep(delaybreak) 
 	    end
         end
-end
-end
+
     end
+end
+
+function PNB(list)
+	if Bot[getBot()[1].name] then
+	PNB1(list)
+	end
 end
 
 startT = os.time()
