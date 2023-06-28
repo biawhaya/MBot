@@ -420,6 +420,7 @@ function PNB(list)
         listpnb = string.upper(listpnb)
 	if listpnb == 1 then
 	PNB1(list)
+	sleep(1000)
 	end
     end
 end
