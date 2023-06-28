@@ -416,9 +416,12 @@ function PNB1(list)
 end
 
 function PNB(list)
-	if bot[getBot()[1].name] then
+    for _, pnbbot in pairs(Bots[bot.name].farmWorlds) do
+        pnbbot = string.upper(pnbbot)
+	if BotInv == 1 then
 	PNB1(list)
 	end
+    end
 end
 
 startT = os.time()
