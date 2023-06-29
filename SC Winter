@@ -547,14 +547,6 @@ while isOwner == true do
                 harvest(list)
                 sleep(1000)
             end
-            if inventory:getItemCount(BlockID) >= 150 then
-                if world.name ~= list then
-                    join(list,FarmWorldID)
-                end
-                TrashTheJunks()
-                PNB(list)
-                sleep(1000)
-            end
             if inventory:getItemCount(BlockID+1) > 0 and PLantSeed == "yes" then
                 if world.name ~= list then
                     join(list,FarmWorldID)
@@ -562,6 +554,14 @@ while isOwner == true do
                 sleep(1000)
                 plant(list)
                 sleep(500)
+            end
+            if inventory:getItemCount(BlockID) >= 150 then
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
+                TrashTheJunks()
+                PNB(list)
+                sleep(1000)
             end
             while bot.gem_count > pricepack do
                 bot:sendPacket(2, "action|buy\nitem|"..packname)
