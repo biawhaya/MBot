@@ -228,7 +228,7 @@ function harvest(list)
     end
 end
 
-AgacHazir = 0
+AgacHazir = 1
 function Hazir(list)
     if world.name ~= list then
         join(list,FarmWorldID)
@@ -264,7 +264,7 @@ function Dropf(list)
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
-        "\n <:pepper_tree_seed:1012630107715797073> Dropped Block : "..floats(BlockID).ucanlar)
+        "\n <:peppertree:999318156696887378> Dropped Block : "..floats(BlockID).ucanlar)
     end 
     if inventory:getItemCount(PackitemID) > PackDropCount then
         bot.auto_collect = false
