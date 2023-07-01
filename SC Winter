@@ -539,6 +539,10 @@ while isOwner == true do
         while AgacHazir == 1 do
             sleep(3000) 
             Reconnect(list)
+            if bot.gem_count > pricepack do
+                bot:sendPacket(2, "action|buy\nitem|"..packname)
+                sleep(3000) -- you can change delay
+            end
             if inventory:getItemCount(PackitemID) > PackDropCount then
                 sleep(1000)
                 Dropf()
@@ -584,10 +588,6 @@ while isOwner == true do
                 sleep(1000)
                 plant(list)
                 sleep(500)
-            end
-            while bot.gem_count > pricepack do
-                bot:sendPacket(2, "action|buy\nitem|"..packname)
-                sleep(3000) -- you can change delay
             end
             Hazir(list)
         end
