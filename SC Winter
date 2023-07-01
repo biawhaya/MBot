@@ -539,7 +539,7 @@ while isOwner == true do
         while AgacHazir == 1 do
             sleep(3000) 
             Reconnect(list)
-            if bot.gem_count > pricepack do
+            while bot.gem_count > pricepack do
                 bot:sendPacket(2, "action|buy\nitem|"..packname)
                 sleep(3000) -- you can change delay
             end
