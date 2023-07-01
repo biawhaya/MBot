@@ -539,7 +539,22 @@ while isOwner == true do
             while bot.gem_count > pricepack do
                 bot:sendPacket(2, "action|buy\nitem|"..packname)
                 sleep(3000) -- you can change delay
+            if inventory:getItemCount(PackitemID) > PackDropCount then
+                sleep(1000)
+                Dropf()
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
             end
+            if inventory:getItemCount(BlockID+1) > 100 then
+                sleep(1000)
+                Dropf()
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
+            end
+            Hazir(list)
+        end
         Hazir(list)
         while AgacHazir == 1 do
             sleep(3000) 
@@ -590,6 +605,10 @@ while isOwner == true do
                 plant(list)
                 sleep(500)
             end
+            while bot.gem_count > pricepack do
+                bot:sendPacket(2, "action|buy\nitem|"..packname)
+                sleep(3000) -- you can change delay
+            end
             if inventory:getItemCount(PackitemID) > PackDropCount then
                 sleep(1000)
                 Dropf()
@@ -603,10 +622,6 @@ while isOwner == true do
                 if world.name ~= list then
                     join(list,FarmWorldID)
                 end
-            end
-            while bot.gem_count > pricepack do
-                bot:sendPacket(2, "action|buy\nitem|"..packname)
-                sleep(3000) -- you can change delay
             end
             Hazir(list)
         end
