@@ -427,6 +427,20 @@ function PNB(list)
     end
 end
 
+function CheckerGems()
+            while bot.gem_count > pricepack do
+                bot:sendPacket(2, "action|buy\nitem|"..packname)
+                sleep(3000) -- you can change delay
+		end
+            if inventory:getItemCount(PackitemID) > PackDropCount then
+                sleep(1000)
+                Dropf()
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
+            end
+end
+
 startT = os.time()
 function SecondTT(seconds)
   local seconds = tonumber(seconds)
@@ -536,29 +550,13 @@ while isOwner == true do
         "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	sleep(3000)
-            while bot.gem_count > pricepack do
-                bot:sendPacket(2, "action|buy\nitem|"..packname)
-                sleep(3000) -- you can change delay
-            if inventory:getItemCount(PackitemID) > PackDropCount then
-                sleep(1000)
-                Dropf()
-                if world.name ~= list then
-                    join(list,FarmWorldID)
-                end
-            end
-            if inventory:getItemCount(BlockID+1) > 100 then
-                sleep(1000)
-                Dropf()
-                if world.name ~= list then
-                    join(list,FarmWorldID)
-                end
-            end
-            Hazir(list)
-        end
         Hazir(list)
         while AgacHazir == 1 do
             sleep(3000) 
             Reconnect(list)
+            sleep(1000)
+            CheckerGems()
+            sleep(3000)
             if inventory:getItemCount(PackitemID) > PackDropCount then
                 sleep(1000)
                 Dropf()
