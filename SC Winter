@@ -553,8 +553,6 @@ while isOwner == true do
                     join(list,FarmWorldID)
                 end
             end
-            Hazir(list)
-        end
             if inventory:getItemCount(BlockID) <= 150 then
                 if world.name ~= list then
                     join(list,FarmWorldID)
@@ -591,6 +589,8 @@ while isOwner == true do
                 bot:sendPacket(2, "action|buy\nitem|"..packname)
                 sleep(3000) -- you can change delay
             end
+            Hazir(list)
+        end
         dinlenme = dinlenme + 1
         if restBot == "yes" and dinlenme == restWorldComplete then
         GonWebhook("<@" .. YourDiscordid .. ">"..
