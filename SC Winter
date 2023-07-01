@@ -539,6 +539,22 @@ while isOwner == true do
         while AgacHazir == 1 do
             sleep(3000) 
             Reconnect(list)
+            if inventory:getItemCount(PackitemID) > PackDropCount then
+                sleep(1000)
+                Dropf()
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
+            end
+            if inventory:getItemCount(BlockID+1) >= 100 then
+                sleep(1000)
+                Dropf()
+                if world.name ~= list then
+                    join(list,FarmWorldID)
+                end
+            end
+            Hazir(list)
+        end
             if inventory:getItemCount(BlockID) <= 150 then
                 if world.name ~= list then
                     join(list,FarmWorldID)
@@ -575,22 +591,6 @@ while isOwner == true do
                 bot:sendPacket(2, "action|buy\nitem|"..packname)
                 sleep(3000) -- you can change delay
             end
-            if inventory:getItemCount(PackitemID) > PackDropCount then
-                sleep(1000)
-                Dropf()
-                if world.name ~= list then
-                    join(list,FarmWorldID)
-                end
-            end
-            if inventory:getItemCount(BlockID+1) >= 100 then
-                sleep(1000)
-                Dropf()
-                if world.name ~= list then
-                    join(list,FarmWorldID)
-                end
-            end
-            Hazir(list)
-        end
         dinlenme = dinlenme + 1
         if restBot == "yes" and dinlenme == restWorldComplete then
         GonWebhook("<@" .. YourDiscordid .. ">"..
