@@ -604,6 +604,10 @@ while isOwner == true do
                     join(list,FarmWorldID)
                 end
             end
+            while bot.gem_count > pricepack do
+                bot:sendPacket(2, "action|buy\nitem|"..packname)
+                sleep(3000) -- you can change delay
+            end
             Hazir(list)
         end
         dinlenme = dinlenme + 1
