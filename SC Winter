@@ -112,6 +112,7 @@ function AnlikYer()
         if localbot then
             Botx = math.floor(localbot.posx / 32) 
             Boty = math.floor(localbot.posy / 32)
+	sleep(1000)
         end
     end
 end
@@ -424,7 +425,7 @@ function PNB(list)
             sleep(delaybreak) 
 	    end
         end
-
+      Reconnect(list)
     end
 end
 
@@ -618,7 +619,7 @@ while isOwner == true do
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	sleep(1000)
 	bot:leaveWorld()
-            sleep(restMiliSecond)
+	error()
             dinlenme = 0
         end
     end
