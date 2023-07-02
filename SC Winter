@@ -612,7 +612,7 @@ while isOwner == true do
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	sleep(1000)
 	bot:leaveWorld()
-	error()
+            sleep(10000000)
             dinlenme = 0
         end
     end
