@@ -122,11 +122,10 @@ function Reconnect(list)
             bot:connect()
             sleep(10000)
         end
-	sleep(5000)
-        join(list,FarmWorldID)
     end
     if world.name ~= list then
         join(list,FarmWorldID)
+        sleep(5000)
     end
     AnlikYer()
     Dunyadami = tostring(world.name)
