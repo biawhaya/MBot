@@ -515,6 +515,7 @@ PickaxeControl()
 botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
+    getBot().move_interval = 200
     for _, list in pairs(Bots[bot.name].farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
