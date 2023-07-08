@@ -49,7 +49,7 @@ end
 function join(a,b) 
     sleep(3000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
-    sleep(6000)
+    sleep(10000)
     Dunyadami = tostring(world.name)
     if Dunyadami == "" or Dunyadami == "EXIT" then
     	join(a,b)
