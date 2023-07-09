@@ -132,6 +132,7 @@ end
 function Reconnect(list)
     if bot.status ~= 1 then
         while bot.status ~= 1 do
+	    sleep(10000)
             bot:connect()
             sleep(30000)
         if not is_valid() then
