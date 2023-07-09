@@ -535,7 +535,7 @@ botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
     getBot().move_interval = 300
-    getBot().move_range = 3
+    getBot().move_range = 2
     for _, list in pairs(Bots[bot.name].farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
