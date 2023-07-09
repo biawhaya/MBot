@@ -134,17 +134,18 @@ end
 function Reconnect(list)
     if bot.status ~= 1 then
         while bot.status ~= 1 do
-	    sleep(10000)
             bot:connect()
-            sleep(30000)
+            sleep(10000)
         if not is_valid() then
             break
         end
+        sleep(5000)
+        join(list,FarmWorldID)
+        end
     if world.name ~= list then
+        sleep(5000)
         join(list,FarmWorldID)
         sleep(5000)
-        end
-    end
     end
     AnlikYer()
     Dunyadami = tostring(world.name)
