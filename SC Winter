@@ -149,7 +149,6 @@ function Reconnectdropseed()
     if world.name ~= StorageWorld then
         join(StorageWorld,StorageWorldSeedID)
     end
-    end
     AnlikYer()
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
