@@ -116,34 +116,17 @@ function AnlikYer()
     end
 end
 
-function is_valid()
-    local valid_status_list = {
-        BotStatus.offline,
-        BotStatus.online,
-        BotStatus.version_update,
-        BotStatus.server_overload,
-        BotStatus.server_busy,
-        BotStatus.too_many_login,
-        BotStatus.error_connecting,
-        BotStatus.logon_fail
-    }
-
-    return contains(valid_status_list, bot.status)
-end
-
 function Reconnect(list)
     if bot.status ~= 1 then
         while bot.status ~= 1 do
             bot:connect()
             sleep(10000)
         end
-        sleep(5000)
+	sleep(5000)
         join(list,FarmWorldID)
-        end
+    end
     if world.name ~= list then
-        sleep(5000)
         join(list,FarmWorldID)
-        sleep(5000)
     end
     AnlikYer()
     Dunyadami = tostring(world.name)
