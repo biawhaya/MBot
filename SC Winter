@@ -48,6 +48,8 @@ end
 
 function join(a,b) 
     sleep(3000)
+    bot:leaveWorld()
+    sleep(6000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
     sleep(15000)
     Dunyadami = tostring(world.name)
