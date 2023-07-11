@@ -352,6 +352,7 @@ function doTheInventory_JustInCase()
     
     if availableSlots == TakenSlots then
         bot:buy("upgrade_backpack")
+	sleep(3000)
     end
 end
 
