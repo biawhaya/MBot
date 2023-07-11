@@ -179,6 +179,7 @@ end
 
 function harvest(list) 
     Reconnect(list)
+    doTheInventory_JustInCase()
     bot.auto_collect = true
     for i, tile in ipairs(world:getTiles()) do
         Reconnect(list)
@@ -345,16 +346,23 @@ function tilealbg(x,y)
     end
 end
 
-local availableSlots = bot:getInventory().slotcount
-local TakenSlots = bot:getInventory().itemcount
+function doTheInventory_JustInCase()
+    local availableSlots = bot:getInventory().slotcount
+    local TakenSlots = bot:getInventory().itemcount
+    
+    if availableSlots == TakenSlots then
+        bot:buy("upgrade_backpack")
+	sleep(3000)
+    end
+end
+
 function buypack()
+sleep(1000)
+doTheInventory_JustInCase()
 while bot.gem_count > pricepack do
 sleep(3000)
 bot:sendPacket(2, "action|buy\nitem|"..packname)
 sleep(3000) -- you can change delay
-    if availableSlots == TakenSlots then
-        bot:buy("upgrade_backpack")
-    end
 end
 end
 
