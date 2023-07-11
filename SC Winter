@@ -352,7 +352,6 @@ function doTheInventory_JustInCase()
     
     if availableSlots == TakenSlots then
         bot:buy("upgrade_backpack")
-	sleep(3000)
     end
 end
 
@@ -371,6 +370,7 @@ BotPyz = BotPy-1
 function PNB(list)
     PickaxeControl()
     Reconnect(list)
+    doTheInventory_JustInCase()
     bot.auto_collect = true
     bot:findPath(BotPxz,BotPyz)
     sleep(2000)
