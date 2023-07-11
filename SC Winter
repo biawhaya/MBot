@@ -345,11 +345,16 @@ function tilealbg(x,y)
     end
 end
 
+local availableSlots = bot:getInventory().slotcount
+local TakenSlots = bot:getInventory().itemcount
 function buypack()
 while bot.gem_count > pricepack do
 sleep(3000)
 bot:sendPacket(2, "action|buy\nitem|"..packname)
 sleep(3000) -- you can change delay
+    if availableSlots == TakenSlots then
+        bot:buy("upgrade_backpack")
+    end
 end
 end
 
