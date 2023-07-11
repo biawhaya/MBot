@@ -346,12 +346,15 @@ function tilealbg(x,y)
 end
 
 function buypack()
-        bot:sendPacket(2, "action|buy\nitem|"..packname)
-        sleep(3000) -- you can change delay
-        end
-	if bot.gem_count < pricepack then
-	  break
-	end
+sleep(3000)
+bot:sendPacket(2, "action|buy\nitem|"..packname)
+sleep(3000) -- you can change delay
+if bot.gem_count > pricepack then
+buypack()
+else
+break
+end
+end
 
 BotPxz = BotPx-1
 BotPyz = BotPy-1
