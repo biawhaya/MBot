@@ -346,10 +346,18 @@ function tilealbg(x,y)
 end
 
 function buypack()
+reconnect()
 sleep(3000)
 while bot.gem_count => pricepack do
 bot:sendPacket(2, "action|buy\nitem|"..packname)
 sleep(3000) -- you can change delay
+end
+if inventory:getItemCount(PackitemID) > PackDropCount then
+sleep(1000)
+Dropf()
+if world.name ~= list then
+        join(list,FarmWorldID)
+end
 end
 end
 
