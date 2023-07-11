@@ -346,7 +346,7 @@ function tilealbg(x,y)
 end
 
 function buypack()
-reconnect(list)
+Reconnect(list)
 sleep(3000)
 while bot.gem_count => pricepack do
 bot:sendPacket(2, "action|buy\nitem|"..packname)
