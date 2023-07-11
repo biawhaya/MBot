@@ -348,7 +348,7 @@ end
 function buypack()
 Reconnect(list)
 sleep(3000)
-while bot.gem_count >= pricepack do
+while bot.gem_count > pricepack do
 bot:sendPacket(2, "action|buy\nitem|"..packname)
 sleep(3000) -- you can change delay
 end
