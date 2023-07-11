@@ -346,9 +346,8 @@ function tilealbg(x,y)
 end
 
 function buypack()
-Reconnect(list)
-sleep(3000)
 while bot.gem_count > pricepack do
+sleep(3000)
 bot:sendPacket(2, "action|buy\nitem|"..packname)
 sleep(3000) -- you can change delay
 end
