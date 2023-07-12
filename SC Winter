@@ -110,10 +110,8 @@ function AnlikYer()
     end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
-        localbot = world:getLocal()
-        if localbot then
-            Botx = math.floor(localbot.posx / 32) 
-            Boty = math.floor(localbot.posy / 32)
+        if world:getTile(Botx,Boty).fg == 6 then
+            join(list,FarmWorldID)
         end
     end
 end
