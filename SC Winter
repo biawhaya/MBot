@@ -638,8 +638,6 @@ while isOwner == true do
         "\n <:peppertree:999318156696887378> Ready Tree : "..scanTree(BlockID+1).Ready..
         "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
-	sleep(1000)
-	bot:leaveWorld()
             sleep(10000000)
             dinlenme = 0
         end
