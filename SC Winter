@@ -103,6 +103,10 @@ function AnlikYer()
             sleep(10000)
         end
 	sleep(5000)
+        join(list,FarmWorldID)
+    end
+    if world.name ~= list then
+        join(list,FarmWorldID)
     end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
