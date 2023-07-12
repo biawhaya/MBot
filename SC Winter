@@ -638,7 +638,10 @@ while isOwner == true do
         "\n <:posil:989484591029026867> Fossil : "..tarama(3918).miktr..
         "\n <:jam:987145988470898758> UpTime Bot : "..SecondTT(os.difftime(os.time(), startT)))
 	    sleep(10000)
+	    bot:leaveWorld()
+	    sleep(10000)
 	    bot.auto_reconnect = false
+	    sleep(1000)
 	    bot:disconnect()
             sleep(100000000)
             dinlenme = 0
