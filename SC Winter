@@ -263,11 +263,11 @@ function Dropf(list)
         "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
         "\n <:peppertree:999318156696887378> Dropped Block : "..floats(BlockID).ucanlar)
     end 
-    if inventory:getItemCount(PackitemID) > PackDropCount then
+    if inventory:getItemCount(PackitemID) >= PackDropCount then
         bot.auto_collect = false
         Reconnectdroppack()
         join(PackDropWorld,PackDropWorldID)
-        while inventory:getItemCount(PackitemID) > PackDropCount do
+        while inventory:getItemCount(PackitemID) >= PackDropCount do
             Reconnectdroppack()
             sleep(500)
             bot:drop(PackitemID,inventory:getItemCount(PackitemID))
@@ -560,7 +560,7 @@ while isOwner == true do
         while AgacHazir == 1 do
             sleep(3000) 
             Reconnect(list)
-            if inventory:getItemCount(PackitemID) > PackDropCount then
+            if inventory:getItemCount(PackitemID) >= PackDropCount then
                 sleep(1000)
                 Dropf()
                 if world.name ~= list then
