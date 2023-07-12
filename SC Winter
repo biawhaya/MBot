@@ -50,6 +50,8 @@ function join(a,b)
     sleep(5000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
     sleep(15000)
+    bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
+    sleep(15000)
     Dunyadami = tostring(world.name)
     if Dunyadami == "" or Dunyadami == "EXIT" then
     	join(a,b)
@@ -105,13 +107,12 @@ function AnlikYer()
 	sleep(5000)
         join(list,FarmWorldID)
     end
-    if world.name ~= list then
-        join(list,FarmWorldID)
-    end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
-        if world:getTile(Botx,Boty).fg == 6 then
-            join(list,FarmWorldID)
+        localbot = world:getLocal()
+        if localbot then
+            Botx = math.floor(localbot.posx / 32) 
+            Boty = math.floor(localbot.posy / 32)
         end
     end
 end
