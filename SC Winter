@@ -108,7 +108,7 @@ function AnlikYer()
         join(list,FarmWorldID)
     end
         if world:getTile(Botx,Boty).fg == 6 then
-            join(a,b)
+        join(list,FarmWorldID)
         end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
