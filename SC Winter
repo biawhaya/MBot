@@ -107,6 +107,9 @@ function AnlikYer()
 	sleep(5000)
         join(list,FarmWorldID)
     end
+        if world:getTile(Botx,Boty).fg == 6 then
+            join(a,b)
+        end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
         localbot = world:getLocal()
