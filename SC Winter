@@ -110,6 +110,10 @@ function AnlikYer()
         if world:getTile(Botx,Boty).fg == 6 then
             join(a,b)
         end
+        if BotPxz ~= Botx and BotPyz ~= BotY then
+            bot:findPath(BotPxz,BotPyz)
+            sleep(2000)
+        end
     Dunyadami = tostring(world.name)
     if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
         localbot = world:getLocal()
