@@ -228,6 +228,7 @@ end
 
 AgacHazir = 1
 function Hazir(list)
+    Reconnect(list)
     if world.name ~= list then
         join(list,FarmWorldID)
     end
