@@ -643,8 +643,9 @@ while isOwner == true do
 	    bot.auto_reconnect = false
 	    sleep(5000)
 	    bot:disconnect()
-            sleep(100000000)
+            sleep(10000)
             bot:stop()
+            sleep(100000000)
             dinlenme = 0
         end
     end
