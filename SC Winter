@@ -644,6 +644,7 @@ while isOwner == true do
 	    sleep(5000)
 	    bot:disconnect()
             sleep(100000000)
+            bot:stop()
             dinlenme = 0
         end
     end
