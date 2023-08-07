@@ -544,7 +544,7 @@ dinlenme = 0
 while isOwner == true do
     getBot().move_interval = 145
     getBot().move_range = 6
-    bot.path_check = true
+    bot.path_check bool = true
     for _, list in pairs(Bots[bot.name].farmWorlds) do
         list = string.upper(list)
         Reconnect(list)
