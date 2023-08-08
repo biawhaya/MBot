@@ -16,6 +16,7 @@ function GonWebhook(Winter)
 
     whGud.embed1.description = Winter
     whGud:edit(MID_Webhook)
+    sleep(6000)
 end
 
 function join(a,b) 
