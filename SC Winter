@@ -14,7 +14,7 @@ function GonWebhook(Winter)
     whGud.embed1.title = "Winter1968 - Rotation"
     whGud.embed1.image = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
     whGud.embed1.description = Winter
-    whGud:edit(MID_Webhook)
+    whGud.edit(MID_Webhook)
     sleep(6000)
 end
 
