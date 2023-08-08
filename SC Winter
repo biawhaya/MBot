@@ -7,13 +7,13 @@ PickaxeWorld = string.upper(PickaxeWorld)
 PickaxeWorldID = string.upper(PickaxeWorldID)
 bot.collect_range = 3
 bot.auto_collect = false
-function GonWebhook(Winter)
+function GonWebhook(message)
     whGud = Webhook.new(webhook_url)
     whGud.embed1.use = true
     whGud.embed1.color = math.random(0, 0xFFFFFF)
     whGud.embed1.title = "Winter1968 - Rotation"
     whGud.embed1.image = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
-    whGud.embed1.description = Winter
+    whGud.embed1.description = message
     whGud.edit(MID_Webhook)
     sleep(6000)
 end
