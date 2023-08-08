@@ -231,13 +231,11 @@ function Dropf(list)
             sleep(500)
             bot:moveLeft()
         end
-	GonWebhook("SLIBAW")
-	sleep(6000)
-        GonWebhook(""<:growbot:992058196439072770> Bot Name : "..bot.name..
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <a:online:1007062631787544666> Status : "..bot.status..
         "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
-        "\n <:peppertree:999318156696887378> Dropped Block : "..floats(BlockID).ucanlar")
+        "\n <:peppertree:999318156696887378> Dropped Block : "..floats(BlockID).ucanlar)
     end 
     if inventory:getItemCount(PackitemID) >= PackDropCount then
         bot.auto_collect = false
@@ -525,6 +523,8 @@ while isOwner == true do
         if world.name ~= list then
             join(list,FarmWorldID)
         end
+	GonWebhook("SLIBAW")
+	sleep(6000)
         GonWebhook("<:growbot:992058196439072770> Bot Name : "..botcuk..
         "\n <:wold:909756145202233355> Current World : "..world.name..
         "\n <a:online:1007062631787544666> Status : "..bot.status..
