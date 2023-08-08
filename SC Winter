@@ -8,42 +8,14 @@ PickaxeWorldID = string.upper(PickaxeWorldID)
 bot.collect_range = 3
 bot.auto_collect = false
 function GonWebhook(Winter)
-    local script = [[
-    $webHookUrl = "]]..WebhookUrl..[["
-    $thumbnailObject = [PSCustomObject]@{
-    url = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
-    }
-    $color = Get-Random -Minimum 0 -Maximum 16777215
-    $title = 'Winter1968 - Rotation'
-    $description = "**]]..Winter..[[**"
-  
-    $footer = [PSCustomObject]@{
-        icon_url = "https://cdn.discordapp.com/emojis/978628955907170314.gif?size=96&quality=lossless"
-        text = "]].."Winter1968 | Date : "..(os.date"%d/%m/%y":upper().." Hour : ")..os.date("%I")..":"..os.date("%M").." "..os.date("%p"):upper()..[["
-    }
-  
-    $embedObject = [PSCustomObject]@{
-        color = $color
-        title = $title
-        description = $description
-        thumbnail = $thumbnailObject
-        footer = $footer
-    }
-  
-    [System.Collections.ArrayList]$embedArray = @()
-    $embedArray.Add($embedObject)
-  
-    $payload = [PSCustomObject]@{
-        embeds = $embedArray
-    }
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Post -ContentType 'application/json'
-    ]]
-  
-    local pipe = io.popen("powershell -command -", "w")
-    pipe:write(script)
-    pipe:close()
-    sleep(6000)
+    whGud = Webhook.new(webhook_url)
+    whGud.embed1.use = true
+    whGud.embed1.color = math.random(0, 0xFFFFFF)
+    whGud.embed1.title = "Winter1968 - Rotation"
+    whGud.embed1.image = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
+
+    whGud.embed1.description = Winter
+    whGud:edit(MID_Webhook)
 end
 
 function join(a,b) 
