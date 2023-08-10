@@ -542,7 +542,7 @@ PickaxeControl()
 botcuk = bot.name
 dinlenme = 0
 while isOwner == true do
-    bot.move_interval = 145
+    bot.move_interval = 155
     bot.move_range = 6
     for _, list in pairs(Bots[bot.name].farmWorlds) do
         list = string.upper(list)
