@@ -378,14 +378,14 @@ function PNB(list)
     Reconnect(list)
     doTheInventory_JustInCase()
     bot.auto_collect = true
-    bot:findPath(BotPxz,BotPyz)
+    bot:moveTile(BotPxz,BotPyz)
     sleep(2000)
     while inventory:getItemCount(BlockID) > 0 do
         Reconnect(list)
         AnlikYer()
 
         if BotPxz ~= Botx and BotPyz ~= BotY then
-            bot:findPath(BotPxz,BotPyz)
+            bot:moveTile(BotPxz,BotPyz)
             sleep(2000)
             AnlikYer()
         end
@@ -410,7 +410,7 @@ function PNB(list)
         while (tilealfg(Botx-1,Boty).tilefg ~= 0 or tilealbg(Botx-1,Boty).tilebg ~= 0) do
             Reconnect(list)
             if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+                bot:moveTile(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -422,7 +422,7 @@ function PNB(list)
         while (tilealfg(Botx-1,Boty+1).tilefg ~= 0 or tilealbg(Botx-1,Boty+1).tilebg ~= 0) do
             Reconnect(list)
             if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+                bot:moveTile(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
@@ -434,7 +434,7 @@ function PNB(list)
         while (tilealfg(Botx-1,Boty-1).tilefg ~= 0 or tilealbg(Botx-1,Boty-1).tilebg ~= 0) do
             Reconnect(list)
             if BotPxz ~= Botx and BotPyz ~= BotY then
-                bot:findPath(BotPxz,BotPyz)
+                bot:moveTile(BotPxz,BotPyz)
                 sleep(1000)
                 AnlikYer()
             end
