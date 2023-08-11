@@ -48,7 +48,7 @@ end
 
 function join(a,b) 
     sleep(3000)
-    bot:warp("..a.."|"..b..")
+    bot:warp(a,b)
     sleep(7000)
     Dunyadami = tostring(world.name)
     if Dunyadami == "" or Dunyadami == "EXIT" then
