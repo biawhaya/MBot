@@ -48,9 +48,7 @@ end
 
 function join(a,b) 
     sleep(3000)
-    bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
-    sleep(7000)
-    bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
+    bot:warp("..a.."|"..b..")
     sleep(7000)
     Dunyadami = tostring(world.name)
     if Dunyadami == "" or Dunyadami == "EXIT" then
